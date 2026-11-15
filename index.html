@@ -169,6 +169,10 @@ details summary::-webkit-details-marker{display:none}
 .lgd i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:7px;vertical-align:0}
 .sep{height:1px;background:var(--bd);margin:4px 0}
 .ns{display:none}.mob{display:none}
+.demo{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px 16px;align-items:center;padding:16px 18px;border-radius:14px;background:linear-gradient(90deg,rgba(124,58,237,.16),rgba(124,58,237,.03));border:1px solid rgba(168,85,247,.35)}
+.demo .dt{display:grid;gap:3px;min-width:0}.demo .dt b{font-weight:600;font-size:14.5px;letter-spacing:-.01em}
+.demo .acts{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+@media(max-width:899px){.demo{grid-template-columns:auto minmax(0,1fr);padding:16px}.demo .acts{grid-column:1/-1}.demo .acts .btn{flex:1 1 140px}.demo .acts .link{flex-basis:100%;justify-content:center;padding:4px 0}}
 .pbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 16px;border:1px solid var(--bd);border-radius:12px;background:rgba(255,255,255,.015)}
 .fr3{display:grid;gap:8px;grid-template-columns:1.3fr 1fr 1.2fr}
 .vin.vs input{font-size:20px;padding:12px 14px 12px 46px}
@@ -603,7 +607,7 @@ function projAct(a,b){const ano=U.pano;
 function projIni(t){const P=ensureP(U.pano),v=t.value.trim();P.ini=v===''?null:r2(num(v));save();render();toast('Saldo inicial atualizado')}
 
 /* banner de exemplo e dados no celular */
-const demoBanner=()=>S.demo?`<div class="alert" style="background:linear-gradient(90deg,rgba(168,85,247,.14),rgba(168,85,247,.03));border-color:rgba(168,85,247,.35)"><div class="kt">${ic('spark',18)}</div><div style="flex:1;min-width:0"><b style="font-weight:600">Você está vendo dados de exemplo</b><div class="mu sm">Restaure o backup do seu computador ou comece do zero para usar os seus números.</div></div><div class="fx" style="gap:6px;flex-wrap:wrap"><button class="btn g sm" data-a="imp">${ic('up',14)} Restaurar backup</button><button class="btn g sm" data-a="zero" data-two="Apagar exemplos?">Começar do zero</button><button class="link" data-a="keepdemo">Manter</button></div></div>`:'';
+const demoBanner=()=>S.demo?`<div class="demo"><div class="kt">${ic('spark',18)}</div><div class="dt"><b>Você está vendo dados de exemplo</b><span class="mu sm">Restaure o backup do seu computador ou comece do zero para usar os seus números.</span></div><div class="acts"><button class="btn sm" data-a="imp">${ic('up',14)} Restaurar backup</button><button class="btn g sm" data-a="zero" data-two="Apagar exemplos?">Começar do zero</button><button class="link" data-a="keepdemo">Manter exemplos</button></div></div>`:'';
 const dataBox=()=>`<div class="fx" style="margin-bottom:6px;color:var(--p3)">${ic('lock',15)}<b class="sm" style="color:var(--fg);font-weight:600">Seus dados</b></div><div class="mu xs" style="margin-bottom:12px;line-height:1.5">Ficam salvos só neste aparelho. Para levar do computador para o celular, faça um backup em um e restaure no outro.</div><div class="fx" style="gap:6px"><button class="btn g sm" style="flex:1" data-a="exp">${ic('down',14)} Backup</button><button class="btn g sm" style="flex:1" data-a="imp">${ic('up',14)} Restaurar</button></div><div class="fx" style="gap:14px;margin-top:12px"><button class="link" data-a="demo" data-two="Substituir dados?">Dados de exemplo</button><button class="link dl" data-a="zero" data-two="Apagar tudo?">Zerar</button></div>`;
 
 /* ===== Diálogos ===== */
